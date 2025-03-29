@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Zone - Chennai Super Kings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-red-800 shadow-lg fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="assets/images/royal-challengers-bangalore-logo-freelogovectors.net_.png" 
+                         alt="CSK Logo" 
+                         class="h-16">
+                    <h1 class="text-2xl font-bold ml-4 text-grey-900">Royal challengers Bangalore</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold">HOME</a>
+                    <a href="players.html" class="text-blue-900 hover:text-blue-700 font-semibold">PLAYERS</a>
+                    <a href="news.html" class="text-blue-900 hover:text-blue-700 font-semibold">NEWS</a>
+                    <a href="schedule.html" class="text-blue-900 hover:text-blue-700 font-semibold">SCHEDULE</a>
+                    <a href="statistics.html" class="text-blue-900 hover:text-blue-700 font-semibold">STATISTICS</a>
+                    <a href="fanzone.html" class="text-blue-900 hover:text-blue-700 font-semibold">FAN ZONE</a>
+                </div>
+                <button class="md:hidden text-blue-900" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold">HOME</a>
+                    <a href="players.html" class="text-blue-900 hover:text-blue-700 font-semibold">PLAYERS</a>
+                    <a href="news.html" class="text-blue-900 hover:text-blue-700 font-semibold">NEWS</a>
+                    <a href="schedule.html" class="text-blue-900 hover:text-blue-700 font-semibold">SCHEDULE</a>
+                    <a href="statistics.html" class="text-blue-900 hover:text-blue-700 font-semibold">STATISTICS</a>
+                    <a href="fanzone.html" class="text-blue-900 hover:text-blue-700 font-semibold">FAN ZONE</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Fan Zone Hero Section -->
+    <section class="bg-gradient-to-br from-red-900 to-gray-900 text-white py-32 mt-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Fan Zone</h1>
+            <p class="text-xl mb-8">Join the bangalorian Army and be part of the RCB family!</p>
+            <button id="join-now-btn" class="bg-gray-700 text-white-900 px-8 py-3 rounded-full font-bold hover:bg-red-500 transition inline-block">Join Now</button>
+        </div>
+    </section>
+
+    <!-- Fan Gallery Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Fan Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="assets/images/news/ba1cc-15738793174959-800.jpg" alt="Fan Celebration" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Match Day Celebrations</h3>
+                        <p class="text-gray-600">Fans celebrating RCB's victory at Chepauk Stadium</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="assets/images/news/fanmeet.avif" alt="Fan Meet" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Fan Meet & Greet</h3>
+                        <p class="text-gray-600">Lucky fans meeting their favorite RCB players</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                    <img src="assets/images/news/rcb painting.jpeg" alt="Fan Art" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Fan Art Showcase</h3>
+                        <p class="text-gray-600">Creative artwork from talented RCB fans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Quiz Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Test Your RCB Knowledge</h2>
+                <p class="text-gray-600 mb-8">Take our quiz and prove you're a true RCB fan!</p>
+                <button id="start-quiz" class="bg-red-700 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800 transition inline-block">Start Quiz</button>
+            </div>
+            
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="max-w-3xl mx-auto mt-8 hidden">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <span id="question-number" class="text-lg font-semibold text-blue-900">Question 1/5</span>
+                        <span id="score" class="text-lg font-semibold text-blue-900">Score: 0</span>
+                    </div>
+                    <h3 id="question" class="text-2xl font-bold text-gray-900 mb-6"></h3>
+                    <div id="options" class="space-y-4"></div>
+                    <div class="mt-8 flex justify-between">
+                        <button id="prev-btn" class="bg-gray-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-600 transition hidden">Previous</button>
+                        <button id="next-btn" class="bg-blue-900 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Container -->
+            <div id="results-container" class="max-w-3xl mx-auto mt-8 hidden">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Quiz Complete!</h3>
+                    <p class="text-xl text-gray-600 mb-6">Your final score: <span id="final-score" class="font-bold text-blue-900">0</span>/5</p>
+                    <p id="result-message" class="text-lg text-gray-600 mb-8"></p>
+                    <button id="restart-quiz" class="bg-blue-900 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800 transition inline-block">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Engagement Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Fan Engagement</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Engagement Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fan of the Match</h3>
+                    <p class="text-gray-600">Get a chance to be selected as Fan of the Match and win exciting prizes!</p>
+                </div>
+
+                <!-- Engagement Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-camera text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Photo Contest</h3>
+                    <p class="text-gray-600">Share your best CSK moments and win exclusive merchandise!</p>
+                </div>
+
+                <!-- Engagement Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+                    <i class="fas fa-users text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fan Meetups</h3>
+                    <p class="text-gray-600">Join fellow fans at exclusive meetups and watch parties!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p>Email: info@rcbipl.com</p>
+                    <p>Phone: +91 44 2852 4500</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/RCBTweets/status/1646461197284421634" 
+                           class="hover:text-red-700" 
+                           aria-label="Follow us on Twitter"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.bing.com/ck/a?!&&p=16171309bf529f9d6f484247350e4adce2f7973c79c368ee3a177198bdb25a02JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=facebook+official+page+of+rcb&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1JveWFsQ2hhbGxlbmdlcnNCYW5nYWxvcmUv&ntb=1" 
+                           class="hover:text-red-700" 
+                           aria-label="Follow us on Facebook"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.bing.com/ck/a?!&&p=88300faa2730fa27ea09b3bb0bff3fab115afec1aafe4791071beeb31767db63JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=official+page+of+rcb+instagram&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yb3lhbGNoYWxsZW5nZXJzLmJlbmdhbHVydS8&ntb=1" 
+                           class="hover:text-red-700" 
+                           aria-label="Follow us on Instagram"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-700">About Us</a></li>
+                        <li><a href="#" class="hover:text-red-700">Careers</a></li>
+                        <li><a href="#" class="hover:text-red-700">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <form class="flex" role="search">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input type="email" 
+                               id="email" 
+                               placeholder="Enter your email" 
+                               class="p-2 rounded-l text-black"
+                               required>
+                        <button type="submit" 
+                                class="bg-red-700 text-blue-900 px-4 rounded-r font-bold hover:bg-green-500 transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-blue-800">
+                <p>&copy; 2025 rcb. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+ 
+
+
+
+    <!-- Join Form Modal -->
+    <div id="join-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4 relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <h2 class="text-3xl font-bold text-blue-900 mb-6 text-center">Join RCB Fan Club</h2>
+            <form id="join-form" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-900">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-900">
+                </div>
+                <div>
+                    <label for="phone" class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-900">
+                </div>
+                <div>
+                    <label for="city" class="block text-gray-700 font-semibold mb-2">City</label>
+                    <input type="text" id="city" name="city" required
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-900">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Membership Type</label>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="radio" name="membership" value="basic" checked
+                                   class="mr-2 text-blue-900 focus:ring-blue-900">
+                            <span>Basic (Free)</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="membership" value="premium"
+                                   class="mr-2 text-blue-900 focus:ring-blue-900">
+                            <span>Premium (₹999/year)</span>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <label class="flex items-center">
+                        <input type="checkbox" required
+                               class="mr-2 text-blue-900 focus:ring-blue-900">
+                        <span class="text-sm text-gray-600">I agree to the terms and conditions</span>
+                    </label>
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-800 text-white py-3 rounded-lg font-bold hover:bg-blue-800 transition">
+                    Join Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Quiz questions and answers
+        const quizData = [
+            {
+                question: "Who is the captain of Royal challengers Bangalore?",
+                options: ["MS Dhoni", "virat kohli", "Ruturaj Gaikwad", "Ben Stokes"],
+                correct: 1
+            },
+            {
+                question: "Which stadium is the home ground of RCB?",
+                options: ["m chinaswami stadium", "MA Chidambaram Stadium", "Wankhede Stadium", "Narendra Modi Stadium"],
+                correct: 0
+            },
+            {
+                question: "How many IPL finals RCB played?",
+                options: ["2", "3", "4", "5"],
+                correct: 1
+            },
+            {
+                question: "What is RCB's team color?",
+                options: ["Red", "Blue", "Green", "Yellow"],
+                correct: 0
+            },
+            {
+                question: "Which player is known as 'mr 360' in RCB?",
+                options: ["Suresh Raina", "MS Dhoni", "Ravindra Jadeja", "ab de villiers"],
+                correct: 3
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // DOM Elements
+        const startQuizBtn = document.getElementById('start-quiz');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const questionNumber = document.getElementById('question-number');
+        const scoreElement = document.getElementById('score');
+        const questionElement = document.getElementById('question');
+        const optionsContainer = document.getElementById('options');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const finalScore = document.getElementById('final-score');
+        const resultMessage = document.getElementById('result-message');
+        const restartQuizBtn = document.getElementById('restart-quiz');
+
+        // Start Quiz
+        startQuizBtn.addEventListener('click', () => {
+            startQuizBtn.style.display = 'none';
+            quizContainer.classList.remove('hidden');
+            showQuestion();
+        });
+
+        // Show Question
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            questionNumber.textContent = `Question ${currentQuestion + 1}/${quizData.length}`;
+            questionElement.textContent = question.question;
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = `w-full text-left p-4 rounded-lg border-2 transition ${
+                    userAnswers[currentQuestion] === index
+                        ? 'border-blue-900 bg-blue-50'
+                        : 'border-gray-200 hover:border-blue-900'
+                }`;
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index));
+                optionsContainer.appendChild(button);
+            });
+
+            prevBtn.style.display = currentQuestion === 0 ? 'none' : 'block';
+            nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finish' : 'Next';
+        }
+
+        // Select Option
+        function selectOption(index) {
+            userAnswers[currentQuestion] = index;
+            showQuestion();
+        }
+
+        // Previous Question
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        });
+
+        // Next Question
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        // Show Results
+        function showResults() {
+            score = userAnswers.reduce((acc, answer, index) => {
+                return acc + (answer === quizData[index].correct ? 1 : 0);
+            }, 0);
+
+            finalScore.textContent = score;
+            resultMessage.textContent = getResultMessage(score);
+            
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+        }
+
+        // Get Result Message
+        function getResultMessage(score) {
+            if (score === 5) return "Perfect! You're a true RCB fan! 🏆";
+            if (score >= 3) return "Great job! You know your RCB well! 👍";
+            return "Keep following RCB to learn more! 💪";
+        }
+
+        // Restart Quiz
+        restartQuizBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = new Array(quizData.length).fill(null);
+            resultsContainer.classList.add('hidden');
+            startQuizBtn.style.display = 'inline-block';
+        });
+
+        // Join Form Modal Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const joinNowBtn = document.getElementById('join-now-btn');
+            const joinModal = document.getElementById('join-modal');
+            const closeModal = document.getElementById('close-modal');
+            const joinForm = document.getElementById('join-form');
+
+            if (joinNowBtn && joinModal && closeModal && joinForm) {
+                // Open modal
+                joinNowBtn.addEventListener('click', () => {
+                    joinModal.classList.remove('hidden');
+                    joinModal.classList.add('flex');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                });
+
+                // Close modal
+                closeModal.addEventListener('click', () => {
+                    joinModal.classList.add('hidden');
+                    joinModal.classList.remove('flex');
+                    document.body.style.overflow = ''; // Restore scrolling
+                });
+
+                // Close modal when clicking outside
+                joinModal.addEventListener('click', (e) => {
+                    if (e.target === joinModal) {
+                        joinModal.classList.add('hidden');
+                        joinModal.classList.remove('flex');
+                        document.body.style.overflow = ''; // Restore scrolling
+                    }
+                });
+
+                // Handle form submission
+                joinForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(joinForm);
+                    const data = Object.fromEntries(formData.entries());
+                    
+                    // Show success message
+                    alert('Thank you for joining the CSK Fan Club! We will contact you soon.');
+                    
+                    // Reset form and close modal
+                    joinForm.reset();
+                    joinModal.classList.add('hidden');
+                    joinModal.classList.remove('flex');
+                    document.body.style.overflow = ''; // Restore scrolling
+                });
+            } else {
+                console.error('Some modal elements are missing');
+            }
+        });
+    </script>
+</body>
+</html> 

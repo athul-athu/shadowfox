@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - RCB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="./assets/images/royal-challengers-bangalore-logo-freelogovectors.net_.png" 
+                         alt="CSK Logo" 
+                         class="h-16">
+                    <h1 class="text-2xl font-bold ml-4 text-blue-900">Royal Challengers Bangalore</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold">HOME</a>
+                    <a href="players.html" class="text-blue-900 hover:text-blue-700 font-semibold">PLAYERS</a>
+                    <a href="news.html" class="text-blue-900 hover:text-blue-700 font-semibold">NEWS</a>
+                    <a href="schedule.html" class="text-blue-900 hover:text-blue-700 font-semibold">SCHEDULE</a>
+                    <a href="statistics.html" class="text-blue-900 hover:text-blue-700 font-semibold">STATISTICS</a>
+                    <a href="fanzone.html" class="text-blue-900 hover:text-blue-700 font-semibold">FAN ZONE</a>
+                </div>
+                <button class="md:hidden text-blue-900" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="index.html" class="text-blue-900 hover:text-blue-700 font-semibold">HOME</a>
+                    <a href="players.html" class="text-blue-900 hover:text-blue-700 font-semibold">PLAYERS</a>
+                    <a href="news.html" class="text-blue-900 hover:text-blue-700 font-semibold">NEWS</a>
+                    <a href="schedule.html" class="text-blue-900 hover:text-blue-700 font-semibold">SCHEDULE</a>
+                    <a href="statistics.html" class="text-blue-900 hover:text-blue-700 font-semibold">STATISTICS</a>
+                    <a href="fanzone.html" class="text-blue-900 hover:text-blue-700 font-semibold">FAN ZONE</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Schedule Hero Section -->
+    <section class="bg-gradient-to-br from-blue-900 to-red-800 text-white py-32 mt-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4">Match Schedule</h1>
+            <p class="text-xl">All RCB matches for IPL 2025</p>
+        </div>
+    </section>
+
+    <!-- Next Match -->
+    <section class="py-16">
+        <div class="container mx-auto px-20">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-blue-900 mb-6">Next Match</h2>
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-center">
+                        <img src="./assets/images/royal-challengers-bangalore-logo-freelogovectors.net_.png" 
+                             alt="CSK" 
+                             class="w-24 mx-auto">
+                        <h3 class="text-xl font-bold mt-2">RCB</h3>
+                    </div>
+                    <div class="my-6 md:my-0">
+                        <div class="text-center">
+                            <p class="text-2xl font-bold text-gray-600">VS</p>
+                            <p class="text-gray-500 mt-2">March 24, 2025</p>
+                            <p class="text-gray-500">7:30 PM IST</p>
+                            <p class="text-blue-900 font-semibold mt-2">MA Chidambaram Stadium</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/100px-Mumbai_Indians_Logo.svg.png" 
+                             alt="MI" 
+                             class="w-24 mx-auto">
+                        <h3 class="text-xl font-bold mt-2">MI</h3>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button class="bg-blue-600 text-red-00 px-8 py-3 rounded-full font-bold hover:bg-red-500 transition">
+                        Buy Tickets
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Schedule -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 mb-12">Full Schedule</h2>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-blue-900 text-white">
+                            <tr>
+                                <th class="px-6 py-3 text-left">Date</th>
+                                <th class="px-6 py-3 text-left">Match</th>
+                                <th class="px-6 py-3 text-left">Venue</th>
+                                <th class="px-6 py-3 text-left">Time</th>
+                                <th class="px-6 py-3 text-left">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">March 24, 2025</td>
+                                <td class="px-6 py-4">RCB vs MI</td>
+                                <td class="px-6 py-4">MA Chidambaram Stadium</td>
+                                <td class="px-6 py-4">7:30 PM IST</td>
+                                <td class="px-6 py-4">
+                                    <button class="bg-red-600 text-blue-900 px-4 py-1 rounded font-semibold hover:bg-red-700 transition">                                        Buy Tickets
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">March 28, 2025</td>
+                                <td class="px-6 py-4">RCB vs CSK</td>
+                                <td class="px-6 py-4">M. Chinnaswamy Stadium</td>
+                                <td class="px-6 py-4">7:30 PM IST</td>
+                                <td class="px-6 py-4">
+                                    <button class="bg-red-600 text-blue-900 px-4 py-1 rounded font-semibold hover:bg-red-700 transition">
+                                        Buy Tickets
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="px-6 py-4">April 1, 2025</td>
+                                <td class="px-6 py-4">RCB vs RR</td>
+                                <td class="px-6 py-4">MA Chidambaram Stadium</td>
+                                <td class="px-6 py-4">7:30 PM IST</td>
+                                <td class="px-6 py-4">
+                                    <button class="bg-red-600 text-blue-900 px-4 py-1 rounded font-semibold hover:bg-red-700 transition">
+                                        Buy Tickets
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Information -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-blue-900 mb-12">Home Ground</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <img src="https://cricketstadiumsinfo.com/wp-content/uploads/2024/08/M-Chinnaswamy-Stadium.jpg" alt="Stadium" 
+                         class="w-full h-96 object-cover rounded-lg shadow-lg">
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-blue-900">M chinnaswami Stadium</h3>
+                    <p class="text-gray-600">The M. Chinnaswamy Stadium in Bengaluru is their home ground. As of 2024, the team was captained by Faf du Plessis and is coached by Andy Flower. Royal Challengers have finished as runners-up on three occasions, in 2009, 2011, and 2016, and have qualified for the playoffs in nine seasons.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-blue-400"></i>
+                            <span>bangalore,karnataka</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-users text-blue-400"></i>
+                            <span>Capacity: 50,000</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-info-circle text-blue-400"></i>
+                            <span>First IPL Match: 2008</span>
+                        </div>
+                    </div>
+                    <button class="bg-red-700 text-blue-900 px-6 py-2 rounded font-bold hover:bg-green-200 transition">
+                        View Stadium Info
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p>Email: info@rcbipl.com</p>
+                    <p>Phone: +91 44 2852 4500</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/RCBTweets/status/1646461197284421634" 
+                           class="hover:text-yellow-400" 
+                           aria-label="Follow us on Twitter"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.bing.com/ck/a?!&&p=16171309bf529f9d6f484247350e4adce2f7973c79c368ee3a177198bdb25a02JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=facebook+official+page+of+rcb&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1JveWFsQ2hhbGxlbmdlcnNCYW5nYWxvcmUv&ntb=1" 
+                           class="hover:text-yellow-400" 
+                           aria-label="Follow us on Facebook"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.bing.com/ck/a?!&&p=88300faa2730fa27ea09b3bb0bff3fab115afec1aafe4791071beeb31767db63JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=official+page+of+rcb+instagram&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yb3lhbGNoYWxsZW5nZXJzLmJlbmdhbHVydS8&ntb=1" 
+                           class="hover:text-yellow-400" 
+                           aria-label="Follow us on Instagram"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Careers</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <form class="flex" role="search">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input type="email" 
+                               id="email" 
+                               placeholder="Enter your email" 
+                               class="p-2 rounded-l text-black"
+                               required>
+                        <button type="submit" 
+                                class="bg-yellow-400 text-blue-900 px-4 rounded-r font-bold hover:bg-yellow-500 transition">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-blue-800">
+                <p>&copy; 2025 rcb. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

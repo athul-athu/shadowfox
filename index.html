@@ -3,141 +3,728 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Athul Krishna - Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Official website of royal challengers banglore"
+    />
+    <title>royal challengers banglore - Official Website</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://cdn.freelogovectors.net/wp-content/uploads/2023/05/royal-challengers-bangalore-logo-freelogovectors.net_.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://cdn.freelogovectors.net/wp-content/uploads/2023/05/royal-challengers-bangalore-logo-freelogovectors.net_.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://cdn.freelogovectors.net/wp-content/uploads/2023/05/royal-challengers-bangalore-logo-freelogovectors.net_.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- External CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <!-- Custom CSS -->
+    <style>
+      /* Color Variables */
+      :root {
+        --rcb-red: #FF4B4B;
+        --rcb-gold: #FFD700;
+        --rcb-light: #FFF5F5;
+        --rcb-accent: #FF8C42;
+        --rcb-dark: #2D2D2D;
+      }
+
+      /* Header Styles */
+      .header-gradient {
+        background: linear-gradient(135deg, var(--rcb-light) 0%, var(--rcb-red) 100%);
+        box-shadow: 0 4px 15px rgba(255, 75, 75, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .nav-link {
+        @apply text-rcb-dark font-bold relative px-4 py-2 rounded-full transition-all duration-300;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-link:hover {
+        background: rgba(255, 75, 75, 0.1);
+        color: var(--rcb-red);
+        transform: translateY(-2px);
+      }
+
+      .nav-link.active {
+        background: var(--rcb-red);
+        color: white;
+      }
+
+      .team-name {
+        background: linear-gradient(45deg, var(--rcb-red), var(--rcb-accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        position: relative;
+      }
+
+      .team-name::after {
+        content: 'RCB';
+        position: absolute;
+        top: -8px;
+        right: -15px;
+        font-size: 0.8rem;
+        background: var(--rcb-gold);
+        color: var(--rcb-dark);
+        padding: 2px 8px;
+        border-radius: 12px;
+        -webkit-text-fill-color: var(--rcb-dark);
+      }
+
+      .header-actions {
+        @apply flex items-center gap-4;
+      }
+
+      .header-btn {
+        @apply p-2 rounded-full transition-all duration-300;
+        background: rgba(255, 75, 75, 0.1);
+        color: var(--rcb-dark);
+      }
+
+      .header-btn:hover {
+        background: var(--rcb-red);
+        color: white;
+        transform: rotate(15deg);
+      }
+
+      .mobile-menu-button {
+        @apply text-rcb-dark hover:text-rcb-red transition-colors duration-300;
+      }
+
+      /* Mobile Menu Styling */
+      .mobile-menu {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        margin-top: 1rem;
+        padding: 1rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Animation Classes */
+      .animate-fade-in-up {
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-400 {
+        animation-delay: 400ms;
+      }
+
+      /* Component Classes */
+      .card {
+        @apply bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition duration-300;
+        border: 1px solid rgba(255, 23, 68, 0.1);
+      }
+
+      .card:hover {
+        box-shadow: 0 10px 30px rgba(255, 23, 68, 0.15);
+      }
+
+      .section-title {
+        @apply text-xl font-bold text-blue-900 mb-4;
+        text-align: center;
+        bold: true;
+      }
+
+      .sponsor-card {
+        @apply flex flex-col items-center justify-center;
+      }
+
+      .sponsor-image {
+        @apply h-16 object-contain filter hover:brightness-110 transition;
+      }
+
+      .sponsor-image-small {
+        @apply h-12 object-contain filter hover:brightness-110 transition;
+      }
+
+      /* Add new animations */
+      @keyframes kohliCelebration {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1) rotate(5deg);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .kohli-animate {
+        animation: kohliCelebration 2s infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 23, 68, 0.3));
+      }
+
+      .anthem-player {
+        background: linear-gradient(135deg, #1a1a1a 0%, #cc0000 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(204, 0, 0, 0.3);
+      }
+
+      .fire-text {
+        background: linear-gradient(45deg, #ff4d4d, #ffb84d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fireAnimation 2s infinite;
+      }
+
+      @keyframes fireAnimation {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+    </style>
   </head>
-  <body>
-    <nav class="navbar">
-      <div class="nav-content">
-        <div class="logo">AK</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header class="header-gradient fixed w-full top-0 z-50">
+      <nav class="container mx-auto px-4 py-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <img
+              src="https://cdn.freelogovectors.net/wp-content/uploads/2023/05/royal-challengers-bangalore-logo-freelogovectors.net_.png"
+              alt="RCB Logo"
+              class="h-16 transform hover:scale-110 transition-transform duration-300"
+            />
+            <h1 class="team-name">Royal Challengers</h1>
+          </div>
+          
+          <div class="hidden md:flex items-center gap-6">
+            <a href="index.html" class="nav-link active">HOME</a>
+            <a href="players.html" class="nav-link">PLAYERS</a>
+            <a href="news.html" class="nav-link">NEWS</a>
+            <a href="schedule.html" class="nav-link">SCHEDULE</a>
+            <a href="statistics.html" class="nav-link">STATS</a>
+            <a href="fanzone.html" class="nav-link">FAN ZONE</a>
+          </div>
 
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <img src="athul.jpg" alt="Athul Krishna" class="profile-img" />
-        <h1>Athul Krishna</h1>
-        <p class="tagline">AI & Machine Learning Engineer</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/athul44krishna/" target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="https://github.com/athul-athu" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <h2>About Me</h2>
-      <p>
-        I am a passionate AI and Machine Learning Engineer with expertise in
-        developing innovative solutions. My focus areas include computer vision,
-        deep learning, and social network analysis.
-      </p>
-    </section>
-
-    <section id="projects" class="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <img
-            src="project.jpeg"
-            alt="PPE Detection System"
-            class="project-image"
-          />
-          <div class="project-content">
-            <h3>AI Personal Protection Equipment Detection</h3>
-            <p>
-              Real-time computer vision system for workplace safety monitoring
-              and PPE compliance detection.
-            </p>
-            <div class="project-features">
-              <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <span>Safety Monitoring</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-camera"></i>
-                <span>Real-time Detection</span>
-              </div>
-            </div>
-            <div class="project-tech">
-              <span>Computer Vision</span>
-              <span>Deep Learning</span>
-              <span>Object Detection</span>
-            </div>
+          <div class="header-actions">
+            <button class="header-btn" aria-label="Search">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="header-btn" aria-label="Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="header-btn" aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+            </button>
+            <button class="mobile-menu-button md:hidden">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
           </div>
         </div>
 
-        <div class="project-card">
-          <img
-            src="social.jpg"
-            alt="Social Network Analysis"
-            class="project-image"
-          />
-          <div class="project-content">
-            <h3>Social Networks Analyser</h3>
-            <p>
-              Advanced tool for analyzing social network patterns and
-              relationships using graph theory algorithms.
-            </p>
-            <div class="project-features">
-              <div class="feature">
-                <i class="fas fa-project-diagram"></i>
-                <span>Pattern Analysis</span>
-              </div>
-              <div class="feature">
-                <i class="fas fa-network-wired"></i>
-                <span>Network Visualization</span>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden mobile-menu" id="mobile-menu">
+          <div class="flex flex-col space-y-3">
+            <a href="index.html" class="nav-link active">HOME</a>
+            <a href="players.html" class="nav-link">PLAYERS</a>
+            <a href="news.html" class="nav-link">NEWS</a>
+            <a href="schedule.html" class="nav-link">SCHEDULE</a>
+            <a href="statistics.html" class="nav-link">STATS</a>
+            <a href="fanzone.html" class="nav-link">FAN ZONE</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="bg-gradient-to-br from-rcb-light to-rcb-red text-rcb-dark py-32 mt-24"
+        role="banner"
+      >
+        <div class="container mx-auto px-4 text-center">
+          <div class="mb-8">
+            <img
+              src="https://resources.platform.iplt20.com/photo-resources/2024/02/20/3c7cd41d-3a2a-4a2a-b50c-8a8a5f5b0a7b/Virat-Kohli-RCB.jpg?width=390&height=438"
+              alt="Virat Kohli"
+              class="w-48 h-48 mx-auto rounded-full kohli-animate mb-4 object-cover"
+            />
+          </div>
+          <h1 class="text-6xl font-bold mb-4 animate-fade-in-up fire-text">
+            WELCOME TO KOHLI'S EMPIRE
+          </h1>
+          <p class="text-2xl mb-8 animate-fade-in-up delay-200">
+            EE SALA CUP NAMDE 🏆
+          </p>
+          <div class="flex justify-center gap-4">
+            <button
+              class="bg-red-600 text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transform hover:scale-105 transition"
+            >
+              Buy Tickets
+            </button>
+            <button
+              class="bg-white text-red-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transform hover:scale-105 transition"
+            >
+              Join Fan Club
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RCB Anthem Section -->
+      <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+          <div class="anthem-player text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">RCB ANTHEM</h2>
+            <div class="flex justify-center items-center space-x-4">
+              <button
+                class="bg-red-600 text-white p-4 rounded-full hover:bg-red-700 transform hover:scale-110 transition"
+              >
+                <i class="fas fa-play text-2xl"></i>
+              </button>
+              <div class="text-white text-xl font-bold">
+                Play Our Anthem - "RCB RCB" 🎵
               </div>
             </div>
-            <div class="project-tech">
-              <span>Graph Theory</span>
-              <span>Network Analysis</span>
-              <span>Data Mining</span>
+            <p class="text-gray-300 mt-4">
+              Join millions of fans in singing our iconic anthem!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Highlights Section -->
+      <section class="py-16" aria-labelledby="highlights-title">
+        <div class="container mx-auto px-4">
+          <h2 id="highlights-title" class="sr-only">Highlights</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Next Match -->
+            <article class="card">
+              <h3 class="section-title text-rcb-red">Next Match</h3>
+              <div class="flex items-center justify-between">
+                <div class="text-center">
+                  <img
+                    src="https://cricketfor.com/wp-content/uploads/2023/03/eqtmn0fucaancyu-804484-1603180070-e1678566766248.jpg"
+                    alt="CSK"
+                    class="w-16 mx-auto"
+                    width="100"
+                    height="100"
+                  />
+                  <p class="mt-2 font-bold">RCB</p>
+                </div>
+                <div class="text-2xl font-bold text-gray-600">VS</div>
+                <div class="text-center">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/100px-Mumbai_Indians_Logo.svg.png"
+                    alt="MI"
+                    class="w-16 mx-auto"
+                    width="100"
+                    height="100"
+                  />
+                  <p class="mt-2 font-bold">MI</p>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <p class="text-gray-600">March 24, 2025 - 7:30 PM IST</p>
+                <p class="text-gray-600">MA Chidambaram Stadium</p>
+              </div>
+            </article>
+
+            <!-- Latest News -->
+            <article class="card">
+              <h3 class="section-title">Latest News</h3>
+              <img
+                src="./assets/images//sponsors/download.jpeg"
+                alt="CSK Metro Partnership"
+                class="w-full h-48 object-cover rounded mb-4"
+              />
+              <h4 class="font-bold text-lg mb-2">
+                Qatar Airways as Tittle sponsor of RCB
+              </h4>
+              <p class="text-gray-600 text-sm mb-4">
+                RCB have announced a special partnership with Qatar airways for
+                the TATA IPL 2025 season. This collaboration aims to enhance fan
+                experience by providing seamless transportation to and from
+                match venues.
+              </p>
+              <a
+                href="news.html"
+                class="text-blue-900 font-bold mt-4 inline-block hover:text-blue-700"
+                >Read More →</a
+              >
+            </article>
+
+            <!-- Quick Stats -->
+            <article class="card">
+              <h3 class="section-title">Quick Stats</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Virat Kohli Runs</span>
+                  <span class="font-bold text-red-600">7263 🏏</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Team Win Rate</span>
+                  <span class="font-bold text-red-600">59.8% 📈</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Playoff Appearances</span>
+                  <span class="font-bold text-red-600">9 🎯</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">Highest Score</span>
+                  <span class="font-bold text-red-600">263/5 🔥</span>
+                </div>
+                <a
+                  href="statistics.html"
+                  class="text-red-600 font-bold mt-4 inline-block hover:text-red-700"
+                  >View All Stats →</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Links Section -->
+      <section class="py-16 bg-gray-50" aria-labelledby="quick-links-title">
+        <div class="container mx-auto px-4">
+          <h2 id="quick-links-title" class="sr-only">Quick Links</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="players.html" class="group">
+              <div class="card">
+                <i
+                  class="fas fa-users text-4xl text-blue-900 mb-4"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="text-xl font-bold text-blue-900">
+                  Meet Our Players
+                </h3>
+                <p class="text-gray-600 mt-2">
+                  Get to know the champions who make RCB special
+                </p>
+              </div>
+            </a>
+            <a href="schedule.html" class="group">
+              <div class="card">
+                <i
+                  class="fas fa-calendar text-4xl text-blue-900 mb-4"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="text-xl font-bold text-blue-900">Match Schedule</h3>
+                <p class="text-gray-600 mt-2">
+                  Plan your match days with our complete schedule
+                </p>
+              </div>
+            </a>
+            <a href="fanzone.html" class="group">
+              <div class="card">
+                <i
+                  class="fas fa-heart text-4xl text-blue-900 mb-4"
+                  aria-hidden="true"
+                ></i>
+                <h3 class="text-xl font-bold text-blue-900">Fan Zone</h3>
+                <p class="text-gray-600 mt-2">
+                  Join the conversation and test your RCB knowledge
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sponsors Section -->
+      <section class="py-12 bg-white" aria-labelledby="sponsors-title">
+        <div class="container mx-auto px-4">
+          <header class="text-center mb-8">
+            <h2
+              id="sponsors-title"
+              class="text-2xl md:text-3xl font-bold text-blue-900"
+            >
+              Our Valued Sponsors
+            </h2>
+            <p class="text-sm text-gray-600 mt-2">
+              Proud partners who support our journey to excellence
+            </p>
+          </header>
+
+          <!-- Principal Sponsors -->
+          <div class="mb-12">
+            <h3
+              class="text-lg md:text-xl font-semibold text-center text-gray-700 mb-6"
+            >
+              Principal Sponsors
+            </h3>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 items-center justify-items-center"
+            >
+              <div class="w-full max-w-xs">
+                <div
+                  class="relative overflow-hidden rounded-lg p-4 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/Qatar-Airways-Logo-2006-present.jpg"
+                    alt="The India Cements Ltd Logo"
+                    class="h-20 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-xs">
+                <div
+                  class="relative overflow-hidden rounded-lg p-4 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/delhivery-logo.jpg"
+                    alt="Gulf Oil Logo"
+                    class="h-20 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-xs">
+                <div
+                  class="relative overflow-hidden rounded-lg p-4 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/Puma-Logo.png"
+                    alt="SNJ Distilleries Logo"
+                    class="h-20 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official Partners -->
+          <div>
+            <h3
+              class="text-lg md:text-xl font-semibold text-center text-gray-700 mb-6"
+            >
+              Official Partners
+            </h3>
+            <div
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 items-center justify-items-center"
+            >
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp4.png"
+                    alt="Nippon Paint Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp5.png"
+                    alt="Britannia Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp6.png"
+                    alt="Jio Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp7.jpeg"
+                    alt="Groww Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp8.png"
+                    alt="Partner Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp9.png"
+                    alt="Partner Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp10.png"
+                    alt="Partner Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div class="w-full max-w-[200px]">
+                <div
+                  class="relative overflow-hidden rounded-lg p-3 bg-white shadow-md transition duration-300 hover:shadow-lg"
+                >
+                  <img
+                    src="assets/images/sponsors/sp11.png"
+                    alt="Partner Logo"
+                    class="h-16 w-auto mx-auto object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="contact" class="contact">
-      <h2>Get In Touch</h2>
-      <div class="contact-links">
-        <a
-          href="https://www.linkedin.com/in/athul44krishna/"
-          class="contact-btn linkedin"
-        >
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/athul-athu" class="contact-btn github">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-      </div>
-    </section>
-
-    <footer>
-      <p>
-        &copy; <span class="animated-year">2024</span> Athul Krishna. All rights
-        reserved.
-      </p>
-      <div class="footer-animation">
-        <div class="wave"></div>
+    <!-- Footer -->
+    <footer class="bg-rcb-black text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+            <p>Email: info@rcbipl.com</p>
+            <p>Phone: +91 44 2852 4500</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+              <a
+                href="https://x.com/RCBTweets/status/1646461197284421634"
+                class="hover:text-yellow-400"
+                aria-label="Follow us on Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.bing.com/ck/a?!&&p=16171309bf529f9d6f484247350e4adce2f7973c79c368ee3a177198bdb25a02JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=facebook+official+page+of+rcb&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL1JveWFsQ2hhbGxlbmdlcnNCYW5nYWxvcmUv&ntb=1"
+                class="hover:text-yellow-400"
+                aria-label="Follow us on Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.bing.com/ck/a?!&&p=88300faa2730fa27ea09b3bb0bff3fab115afec1aafe4791071beeb31767db63JmltdHM9MTc0MjUxNTIwMA&ptn=3&ver=2&hsh=4&fclid=03ba9298-acbf-6a33-29d5-872eaddd6b84&psq=official+page+of+rcb+instagram&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9yb3lhbGNoYWxsZW5nZXJzLmJlbmdhbHVydS8&ntb=1"
+                class="hover:text-yellow-400"
+                aria-label="Follow us on Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
+              <li><a href="#" class="hover:text-yellow-400">Careers</a></li>
+              <li>
+                <a href="#" class="hover:text-yellow-400">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+            <form class="flex" role="search">
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                class="p-2 rounded-l text-black"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-yellow-400 text-blue-900 px-4 rounded-r font-bold hover:bg-yellow-500 transition"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="text-center mt-8 pt-8 border-t border-blue-800">
+          <p>&copy; 2025 rcb. All rights reserved.</p>
+        </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
   </body>
 </html>
